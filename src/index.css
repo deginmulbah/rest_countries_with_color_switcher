@@ -1,13 +1,335 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+    --dark-mode-text-light-mode-elements: hsl(0, 0%, 100%);
+    /* --shadow: 5px -1px 11px 6px rgb(10 10 10 / 75%); */
+    /* 5px -1px 11px 6px rgb(229 226 226 / 49%) */
+    --homepage-fontsize: 14px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.mr-4 {
+    margin-right: 4rem;
+}
+
+.ml-4 {
+    margin-left: 4rem;
+}
+
+.mt-4 {
+    margin-top: 4rem;
+}
+
+.mt-2 {
+    margin-top: 2em;
+}
+
+.border-red {
+    border: 1px solid red !important;
+}
+
+.error {
+    color: red
+}
+
+.btn-link {
+    display: inline-block;
+    text-align: center;
+    width: 100px;
+    line-height: 1.5;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    background-color: var(--elementBackground);
+    box-shadow: var(--shadow);
+    text-decoration: none;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    border-radius: 0.25rem;
+}
+
+.btn-link .arrow-icon {
+    font-weight: 300px;
+}
+
+body {
+    background-color: var(--backgroundColor);
+    color: var(--textColor);
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1200px;
+    }
+}
+
+.element-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header {
+    background-color: var(--elementBackground) !important;
+    box-shadow: var(--shadow);
+    -webkit-box-shadow: var(--shadow);
+    -moz-box-shadow: var(--shadow);
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.header .header-title h2 {
+    font-size: var(--homepage-fontsize);
+    font-weight: 800;
+}
+
+.btn-color-switcher {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    color: var(--textColor);
+}
+
+/* search and fliter element */
+.search-fliter {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2.9rem;
+}
+
+
+.search-input {
+    position: relative;
+    /* width: 100%; */
+}
+
+.search-input input {
+    width: 400px;
+    padding: 1.5em;
+    padding-left: 4rem;
+    border: none;
+    border-radius: 2px;
+    box-shadow: var(--shadow);
+    background-color: var(--elementBackground);
+    color:var(--textColor);
+    font-size: .9em;
+
+}
+
+@media (max-width: 768px) {
+    .search-fliter {
+        flex-wrap: wrap;
+    }
+
+    .search-input input {
+        width: 100% !important;
+    }
+}
+
+.search-input .input-icon {
+    position: absolute;
+    left: 25px;
+    top: 20px;
+}
+
+.fliterCountry select {
+    width: 200px;
+    padding: 1.5em;
+    padding-right: 1.5em;
+    border: none;
+    border-radius: 2px;
+    box-shadow: var(--shadow);
+    background-color: var(--elementBackground);
+    color: var(--textColor);
+}
+
+.fliterCountry select option {
+    background: var(--elementBackground);
+    border: none;
+    color: var(--textColor);
+}
+
+@media (max-width: 768px) {
+    .fliterCountry {
+        margin-top: 2.9rem;
+    }
+}
+
+/* countries list */
+.countries-listen {
+    margin-top: 4rem;
+}
+
+.country-card {
+    background-color: var(--elementBackground);
+    margin-bottom: 1em;
+    box-shadow: var(--shadow);
+    min-height: 100%;
+}
+
+.card-img {
+    width: 100%;
+    height: 200px;
+}
+
+.card-content {
+    padding: 1.4rem;
+}
+
+.card-content .card-heading {
+    margin-top: 0;
+    margin-bottom: .5em;
+    font-weight: bold;
+}
+
+.card-content .card-details p {
+    padding: .2em;
+    font-weight: bold;
+}
+
+.card-content .card-details p span {
+    font-weight: lighter;
+}
+
+@media screen and (min-width: 40em) {
+    .countries-listen {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .country-card {
+        flex: 0 0 calc(25% - 1em);
+    }
+
+    .country-details {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .details {
+        flex: 0 1 50%;
+    }
+
+    .country-flag img {
+        width: 80% !important;
+        height: 10rem;
+    }
+}
+
+@media screen and (min-width: 60em) {
+    .country-card {
+        flex: 0 0 calc(25% - 1em);
+    }
+
+    .details {
+        flex: 0 1 50%;
+    }
+
+    .country-flag img {
+        width: 80% !important;
+        height: 20rem;
+    }
+}
+
+/* country details page */
+.country-info .info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.country-info .country-name {
+    margin-bottom: 1em;
+    font-weight: 600;
+    font-size: 2em;
+}
+
+.country-info .info .info-items p {
+    padding-top: .8em;
+    font-weight: 600;
+}
+
+.country-info .info .info-items p span {
+    font-weight: lighter;
+    margin-left: .2em;
+}
+
+.border-countries {
+    margin-top: 2em;
+}
+
+.barder-cluntries h2 {
+    font-weight: 600;
+    font-size: 2em;
+}
+
+.border-countries h2 span {
+    margin: .6em;
+    padding: .5em;
+    font-size: 14px;
+    font-weight: lighter;
+    box-shadow: var(--shadow);
+    background-color: var(--dark-mode-text-light-mode-elements);
+}
+
+.country-flag img {
+    width: 100%;
+
+}
+
+/*----------- spinner Style ------*/
+.spinner-container {
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    top: 50%;
+    left: 50%;
+    margin-left: -50px;
+    margin-top: -50px;
+}
+
+.spinner-svg {
+	width: 100%;
+	max-width: 10rem;
+	animation: rotate 3.6s linear infinite;
+}
+
+circle {
+	fill: none;
+	stroke: rgb(64, 50, 94);
+	stroke-width: 8px;
+	stroke-dasharray: 300;
+	animation: outline 2s cubic-bezier(0.77,0,0.18,1) infinite;
+}
+
+@keyframes outline {
+	0% {
+		stroke-dashoffset: 0;
+	}
+	50% {
+		stroke-dashoffset: 300;
+	}
+	100% {
+		stroke-dashoffset: 600;
+	}
+}
+
+@keyframes rotate {
+	from {
+		transform: rotate(0turn);
+	}
+	to {
+		transform: rotate(-1turn);
+	}
 }
